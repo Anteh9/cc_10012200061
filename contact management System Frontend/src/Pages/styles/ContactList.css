@@ -1,0 +1,130 @@
+/* ContactList.css */
+
+/* Container for the contact list */
+.contact-list-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Title */
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4b5563; /* Dark gray */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Notification styles */
+  .notification {
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .notification.success {
+    background-color: #d1fae5; /* Light green */
+    color: #047857; /* Dark green */
+    border: 1px solid #34d399;
+  }
+  
+  .notification.error {
+    background-color: #fee2e2; /* Light red */
+    color: #b91c1c; /* Dark red */
+    border: 1px solid #f87171;
+  }
+  
+  /* Search input container */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    focus:ring-2;
+  }
+  
+  /* Grid container for contact cards */
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Individual contact card */
+  .contact-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .contact-address, .contact-email, .contact-phone {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 8px;
+  }
+  
+  /* Action buttons */
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  .edit-link {
+    font-size: 1rem;
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  .edit-link:hover {
+    color: #1d4ed8;
+  }
+  
+  .delete-button {
+    font-size: 1rem;
+    color: #e11d48;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    color: #9b1c1c;
+  }
+  
+  .delete-button.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* When no contacts are found */
+  .no-contacts {
+    text-align: center;
+    color: #9ca3af;
+  }
+  

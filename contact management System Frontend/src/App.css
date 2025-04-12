@@ -1,0 +1,11 @@
+/* App.css */
+
+/* Layout */
+.main-content {
+  margin-left: 256px; /* Adjusting for Sidebar width */
+  min-height: 100vh;
+  background-color: #f7fafc; /* Light background */
+  padding: 16px;
+}
+
+/* You can add more global styles here */
