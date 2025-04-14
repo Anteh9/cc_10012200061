@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './styles/auth.css';
-import apiUrl from './api';
+
 
 const AuthPage = ({ onLogin }) => {
   const [isSignUp, setIsSignUp] = useState(false);

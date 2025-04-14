@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import "./styles/EditContact.css";
-import apiUrl from './api';
+import apiUrl from "../api";
 
 export default function EditContact() {
   const { id } = useParams();
