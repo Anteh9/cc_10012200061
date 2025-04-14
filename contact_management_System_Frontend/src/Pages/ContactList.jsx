@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./styles/ContactList.css";
-import apiUrl from "../api";
+import apiUrl from "../apiURL";
 
 export default function ContactList() {
   const [contacts, setContacts] = useState([]);

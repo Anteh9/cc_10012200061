@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/AddContact.css'; // Import the CSS for the Add Contact page
-import apiUrl from "../api";
+import apiUrl from "../apiURL";
 
 export default function AddContact() {
   const [name, setCompanyName] = useState('');
