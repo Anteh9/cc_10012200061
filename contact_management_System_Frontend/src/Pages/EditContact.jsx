@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import "./styles/EditContact.css";
+import apiUrl from './api';
 
 export default function EditContact() {
   const { id } = useParams();
@@ -16,7 +17,7 @@ export default function EditContact() {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/contacts/${id}`);
+        const res = await fetch(`${apiUrl}/contacts/${id}`);
         if (!res.ok) throw new Error('Failed to fetch contact');
         const data = await res.json();
         setOriginalContact(data);
@@ -42,14 +43,13 @@ export default function EditContact() {
     setLoading(true);
     setError(null);
 
-    // Merge original + edited contact before sending
     const updatedContact = {
       ...originalContact,
       ...editedContact,
     };
 
     try {
-      const res = await fetch(`http://localhost:5000/contacts/${id}`, {
+      const res = await fetch(`${apiUrl}/contacts/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/AddContact.css'; // Import the CSS for the Add Contact page
+import apiUrl from './api';
 
 export default function AddContact() {
   const [name, setCompanyName] = useState('');
@@ -21,7 +22,7 @@ export default function AddContact() {
     };
 
     try {
-      await fetch('http://localhost:5000/contacts', {
+      await fetch(`${apiUrl}/contacts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newContact),
