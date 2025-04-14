@@ -1,0 +1,16 @@
+
+
+services:
+  backend:
+    build: ./contact_management_System_Backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./contact_management_System_Backend/.env
+    depends_on:
+      - frontend
+
+  frontend:
+    build: ./contact_management_System_Frontend
+    ports:
+      - "3000:80"

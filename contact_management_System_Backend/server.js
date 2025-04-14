@@ -1,11 +1,12 @@
 const express = require('express');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const { Pool } = require('pg');
 require('dotenv').config();  // To load environment variables
 
 const app = express();
 const port = process.env.PORT || 5000;
+
 
 // Enable CORS
 app.use(cors());

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/Auth.css';
+import './styles/auth.css';
 
 const AuthPage = ({ onLogin }) => {
   const [isSignUp, setIsSignUp] = useState(false);

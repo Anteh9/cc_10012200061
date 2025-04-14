@@ -39,19 +39,23 @@ function App() {
     <Router>
       <ToastContainer />
       <Routes>
-        {isAuthenticated ? (
-          <Route element={<Layout onLogout={handleLogout} />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/add" element={<ProtectedRoute element={<AddContact />} />} />
-            <Route path="/contacts" element={<ProtectedRoute element={<ContactList />} />} />
-            <Route path="/edit/:id" element={<ProtectedRoute element={<EditContact />} />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Route>
-        ) : (
+        {/* Unauthenticated Route */}
+        {!isAuthenticated && (
           <>
             <Route path="/AuthPage" element={<AuthPage onLogin={handleLogin} />} />
             <Route path="*" element={<Navigate to="/AuthPage" />} />
           </>
+        )}
+
+        {/* Authenticated Routes */}
+        {isAuthenticated && (
+          <Route element={<Layout onLogout={handleLogout} />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/add" element={<AddContact />} />
+            <Route path="/contacts" element={<ContactList />} />
+            <Route path="/edit/:id" element={<EditContact />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Route>
         )}
       </Routes>
     </Router>
