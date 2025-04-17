@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './styles/auth.css';
 
-
 const AuthPage = ({ onLogin }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,11 +18,37 @@ const AuthPage = ({ onLogin }) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // fake authentication
-    if (formData.email && formData.password) {
-      onLogin(); // call parent login
+
+    const endpoint = isSignUp
+      ? 'https://backend-contact-management-system-10gj.onrender.com/signup'
+      : 'https://backend-contact-management-system-10gj.onrender.com/signin';
+
+    const payload = isSignUp
+      ? formData
+      : { email: formData.email, password: formData.password };
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log('Success:', data);
+        onLogin(); // Update app state to reflect successful login
+      } else {
+        alert(data.message || 'Something went wrong');
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      alert('Server error');
     }
   };
 
