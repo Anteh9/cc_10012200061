@@ -12,7 +12,7 @@ export default function ContactList() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    fetch(`${apiUrl}/contacts`)
+    fetch('https://backend-contact-management-system-10gj.onrender.com/contacts')
       .then((res) => res.json())
       .then((data) => setContacts(data))
       .catch((err) => console.error('Error fetching contacts:', err));
@@ -26,7 +26,7 @@ export default function ContactList() {
     setIsDeleting(true);
     try {
       setLoading(true);
-      await fetch(`${apiUrl}/contacts/${id}`, {
+      await fetch('https://backend-contact-management-system-10gj.onrender.com/contacts/${id}', {
         method: 'DELETE',
       });
 

@@ -49,7 +49,7 @@ export default function EditContact() {
     };
 
     try {
-      const res = await fetch(`${apiUrl}/contacts/${id}`, {
+      const res = await fetch('https://backend-contact-management-system-10gj.onrender.com/contacts/${id}', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
