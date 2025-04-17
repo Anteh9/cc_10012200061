@@ -215,7 +215,10 @@ app.delete('/contacts/:id', async (req, res) => {
     }
   });
   
-  
+
+app.get('/', (req, res) => {
+    res.send('Working!')
+})
   
   
 
